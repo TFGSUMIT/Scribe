@@ -1,0 +1,38 @@
+
+name: Feature
+description: Propose a new product feature
+title: ""
+labels:
+  - type: feature
+
+body:
+
+- type: textarea
+  id: story
+  attributes:
+    label: User Story
+    description: Describe the feature from the user's perspective.
+    placeholder: |
+      As a...
+      I want...
+      So that...
+  validations:
+    required: true
+
+- type: textarea
+  id: acceptance
+  attributes:
+    label: Acceptance Criteria
+    description: What conditions must be met for this feature to be considered complete?
+    placeholder: |
+      - [ ]
+      - [ ]
+      - [ ]
+  validations:
+    required: true
+
+- type: textarea
+  id: notes
+  attributes:
+    label: Technical Notes
+    description: Optional implementation notes.

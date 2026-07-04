@@ -1,0 +1,27 @@
+name: Bug Report
+description: Report a bug
+title: ""
+labels:
+  - type: bug
+
+body:
+
+- type: textarea
+  id: description
+  attributes:
+    label: Description
+
+- type: textarea
+  id: steps
+  attributes:
+    label: Steps to Reproduce
+
+- type: textarea
+  id: expected
+  attributes:
+    label: Expected Behavior
+
+- type: textarea
+  id: screenshots
+  attributes:
+    label: Screenshots

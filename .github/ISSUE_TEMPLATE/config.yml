@@ -1,0 +1,7 @@
+blank_issues_enabled: false
+
+contact_links:
+
+  - name: Documentation
+    url: https://github.com/SEU-USUARIO/scribe/tree/main/docs
+    about: Read the project documentation before opening an issue.
