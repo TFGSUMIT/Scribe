@@ -1,0 +1,22 @@
+name: Documentation
+description: Documentation improvements
+title: ""
+labels:
+  - type: docs
+
+body:
+
+- type: textarea
+  id: description
+  attributes:
+    label: Description
+
+- type: textarea
+  id: details
+  attributes:
+    label: Details
+
+- type: textarea
+  id: affected-pages
+  attributes:
+    label: Affected Pages
