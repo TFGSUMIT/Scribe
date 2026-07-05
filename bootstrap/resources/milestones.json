@@ -1,0 +1,26 @@
+[
+  {
+    "title": "v0.1.0",
+    "description": "Discord Bot Foundation"
+  },
+  {
+    "title": "v0.2.0",
+    "description": "Voice Receiver"
+  },
+  {
+    "title": "v0.3.0",
+    "description": "Speech Recognition"
+  },
+  {
+    "title": "v0.4.0",
+    "description": "Session Intelligence"
+  },
+  {
+    "title": "v0.5.0",
+    "description": "Campaign Intelligence"
+  },
+  {
+    "title": "v1.0.0",
+    "description": "First Stable Release"
+  }
+]

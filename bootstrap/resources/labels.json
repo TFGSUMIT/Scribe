@@ -1,0 +1,122 @@
+[
+  {
+    "name": "area: ai",
+    "color": "8B5CF6",
+    "description": "Artificial intelligence and LLM integration."
+  },
+  {
+    "name": "area: audio",
+    "color": "2563EB",
+    "description": "Audio capture and processing."
+  },
+  {
+    "name": "area: bot",
+    "color": "1D4ED8",
+    "description": "Discord bot core."
+  },
+  {
+    "name": "area: campaign",
+    "color": "059669",
+    "description": "Campaign memory and RPG domain."
+  },
+  {
+    "name": "area: ci",
+    "color": "374151",
+    "description": "Continuous Integration and automation."
+  },
+  {
+    "name": "area: discord",
+    "color": "5865F2",
+    "description": "Discord API and gateway."
+  },
+  {
+    "name": "area: docs",
+    "color": "0EA5E9",
+    "description": "Project documentation."
+  },
+  {
+    "name": "area: exporter",
+    "color": "D97706",
+    "description": "Export formats and reporting."
+  },
+  {
+    "name": "area: transcription",
+    "color": "7C3AED",
+    "description": "Speech-to-text pipeline."
+  },
+  {
+    "name": "blocked",
+    "color": "B91C1C",
+    "description": "Work is blocked by another task."
+  },
+  {
+    "name": "good first issue",
+    "color": "7057FF",
+    "description": "Great task for first-time contributors."
+  },
+  {
+    "name": "help wanted",
+    "color": "008672",
+    "description": "Community contributions are welcome."
+  },
+  {
+    "name": "needs discussion",
+    "color": "FBCA04",
+    "description": "Requires architectural or product discussion."
+  },
+  {
+    "name": "priority: critical",
+    "color": "B60205",
+    "description": "Must be completed immediately."
+  },
+  {
+    "name": "priority: high",
+    "color": "D93F0B",
+    "description": "High priority."
+  },
+  {
+    "name": "priority: medium",
+    "color": "FBCA04",
+    "description": "Normal priority."
+  },
+  {
+    "name": "priority: low",
+    "color": "0E8A16",
+    "description": "Low priority."
+  },
+  {
+    "name": "type: bug",
+    "color": "D73A4A",
+    "description": "Something isn't working as expected."
+  },
+  {
+    "name": "type: chore",
+    "color": "6B7280",
+    "description": "Maintenance tasks and project housekeeping."
+  },
+  {
+    "name": "type: docs",
+    "color": "0075CA",
+    "description": "Documentation changes."
+  },
+  {
+    "name": "type: enhancement",
+    "color": "A2EEEF",
+    "description": "Improves an existing feature."
+  },
+  {
+    "name": "type: feature",
+    "color": "0E8A16",
+    "description": "Introduces a new feature or capability."
+  },
+  {
+    "name": "type: refactor",
+    "color": "C2E0C6",
+    "description": "Code improvements without changing behavior."
+  },
+  {
+    "name": "type: test",
+    "color": "5319E7",
+    "description": "Tests and testing infrastructure."
+  }
+]

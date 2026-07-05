@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Create bootstrap configuration loader",
+    "body": "Implement config.py to load environment variables from .env.",
+    "labels": [
+      "type: feature",
+      "area: ci"
+    ],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 1
+  },
+  {
+    "title": "Implement GitHub API client",
+    "body": "Create a reusable GitHub REST client with authentication.",
+    "labels": [
+      "type: feature",
+      "area: ci"
+    ],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 2
+  },
+  {
+    "title": "Create Labels Bootstrap",
+    "body": "Read labels.json and synchronize repository labels.",
+    "labels": [
+      "type: feature",
+      "area: ci"
+    ],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 2
+  },
+  {
+    "title": "Create Milestones Bootstrap",
+    "body": "Read milestones.json and synchronize repository milestones.",
+    "labels": [
+      "type: feature",
+      "area: ci"
+    ],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 2
+  },
+  {
+    "title": "Create GitHub Project Bootstrap",
+    "body": "Automatically create the project board and configure custom fields.",
+    "labels": [
+      "type: feature",
+      "area: ci"
+    ],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 5
+  },
+  {
+    "title": "Bootstrap GitHub Issue Templates",
+    "body": "Automatically synchronize repository templates and GitHub configuration.",
+    "labels": [
+      "type: feature",
+      "area: docs"
+    ],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 2
+  },
+  {
+    "title": "Bootstrap Repository Variables and Secrets",
+    "body": "Create repository variables and document required GitHub secrets.",
+    "labels": [
+      "type: feature",
+      "area: ci"
+    ],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 3
+  },
+  {
+    "title": "Create Bootstrap Export Command",
+    "body": "Export repository configuration into JSON files.",
+    "labels": [
+      "type: enhancement",
+      "area: ci"
+    ],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 5
+  }
+]
