@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Board",
+    "layout": "board"
+  },
+  {
+    "name": "Table",
+    "layout": "table"
+  },
+  {
+    "name": "Roadmap",
+    "layout": "roadmap"
+  }
+]

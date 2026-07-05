@@ -1,0 +1,4 @@
+.env
+scripts.txt
+
+bootstrap/__pycache__/github_client.cpython-313.pyc
