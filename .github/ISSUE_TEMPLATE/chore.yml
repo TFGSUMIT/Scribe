@@ -2,7 +2,7 @@ name: Chore
 description: Maintenance task
 title: ""
 labels:
-  - type: chore
+  - "type: chore"
 
 body:
 

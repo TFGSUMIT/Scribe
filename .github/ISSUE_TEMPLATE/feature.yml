@@ -3,7 +3,7 @@ name: Feature
 description: Propose a new product feature
 title: ""
 labels:
-  - type: feature
+  - "type: feature"
 
 body:
 

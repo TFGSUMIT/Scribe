@@ -2,7 +2,7 @@ name: Documentation
 description: Documentation improvements
 title: ""
 labels:
-  - type: docs
+  - "type: docs"
 
 body:
 
