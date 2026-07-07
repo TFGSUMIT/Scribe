@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Define the AI provider interface",
+    "body": "Per docs/OVERVIEW.md, the AI provider must be swappable behind a Core interface (OpenAI, Gemini, Claude, Ollama, LM Studio). Define that port before building the first concrete provider, so the OpenAI adapter is built as one implementation among several, not as a Core dependency.\n\n**Acceptance Criteria**\n- A Core interface exists for the AI capabilities listed in OVERVIEW.md (summary, entity detection, Q&A, memory)\n- No Core code imports a specific AI SDK",
+    "labels": ["type: feature", "area: ai", "priority: high"],
+    "milestone": "v1.0.0",
+    "epic": "AI",
+    "story_points": 5
+  },
+  {
+    "title": "Implement the OpenAI provider adapter",
+    "body": "Implement the first concrete AI provider adapter, backed by OpenAI, satisfying the interface defined above.\n\n**Acceptance Criteria**\n- Implements the AI provider interface\n- API key configurable via .env, never hardcoded",
+    "labels": ["type: feature", "area: ai", "priority: high"],
+    "milestone": "v1.0.0",
+    "epic": "AI",
+    "story_points": 5
+  },
+  {
+    "title": "Generate an automatic session summary",
+    "body": "Use the AI provider to produce a readable summary of a single session from its transcript and detected entities.\n\n**Acceptance Criteria**\n- SummaryGenerated event raised at the end of a session\n- Summary references the NPCs/quests/events detected during that session",
+    "labels": ["type: feature", "area: ai", "priority: medium"],
+    "milestone": "v1.0.0",
+    "epic": "AI",
+    "story_points": 5
+  },
+  {
+    "title": "Generate a cumulative campaign summary",
+    "body": "Use the AI provider to produce a running summary of the whole campaign, built from individual session summaries and the campaign timeline.\n\n**Acceptance Criteria**\n- Campaign summary updates incrementally as new sessions are added\n- Reads only from persisted campaign data, not raw audio",
+    "labels": ["type: feature", "area: ai", "priority: medium"],
+    "milestone": "v1.0.0",
+    "epic": "AI",
+    "story_points": 5
+  },
+  {
+    "title": "Implement semantic search over campaign history",
+    "body": "Allow querying past campaign content (transcripts, summaries, NPCs, events) using natural-language questions, backed by embeddings.\n\n**Acceptance Criteria**\n- Campaign content is embedded and stored per docs/OVERVIEW.md's persistence model\n- A natural-language query returns relevant past sessions/entities, not just keyword matches",
+    "labels": ["type: feature", "area: ai", "priority: medium"],
+    "milestone": "v1.0.0",
+    "epic": "AI",
+    "story_points": 8
+  }
+]

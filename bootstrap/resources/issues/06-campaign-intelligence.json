@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Detect NPCs mentioned in a session",
+    "body": "Use AI to identify non-player characters mentioned or voiced during a session's transcript.\n\n**Acceptance Criteria**\n- NPCDetected event raised with the NPC's name and the transcript context it was found in\n- Reasonable precision on a sample real/simulated session (manually reviewed)",
+    "labels": ["type: feature", "area: ai", "priority: medium"],
+    "milestone": "v0.5.0",
+    "epic": "AI",
+    "sprint": "Sprint 5",
+    "story_points": 5
+  },
+  {
+    "title": "Detect quests mentioned in a session",
+    "body": "Use AI to identify quest-related dialogue (new quests offered, progress, completion) within a session's transcript.\n\n**Acceptance Criteria**\n- QuestDetected event raised with a short description and the quest's apparent status\n- Reasonable precision on a sample real/simulated session (manually reviewed)",
+    "labels": ["type: feature", "area: ai", "priority: medium"],
+    "milestone": "v0.5.0",
+    "epic": "AI",
+    "sprint": "Sprint 5",
+    "story_points": 5
+  },
+  {
+    "title": "Detect items mentioned in a session",
+    "body": "Use AI to identify notable items (weapons, artifacts, treasure) mentioned during a session.\n\n**Acceptance Criteria**\n- Detected items are emitted as domain events with enough context to be organized later\n- Reasonable precision on a sample real/simulated session (manually reviewed)",
+    "labels": ["type: feature", "area: ai", "priority: low"],
+    "milestone": "v0.5.0",
+    "epic": "AI",
+    "sprint": "Sprint 5",
+    "story_points": 3
+  },
+  {
+    "title": "Detect locations mentioned in a session",
+    "body": "Use AI to identify places (cities, dungeons, regions) mentioned during a session.\n\n**Acceptance Criteria**\n- Detected locations are emitted as domain events with enough context to be organized later\n- Reasonable precision on a sample real/simulated session (manually reviewed)",
+    "labels": ["type: feature", "area: ai", "priority: low"],
+    "milestone": "v0.5.0",
+    "epic": "AI",
+    "sprint": "Sprint 5",
+    "story_points": 3
+  },
+  {
+    "title": "Persist and organize detected NPCs",
+    "body": "Store detected NPCs in the campaign database, deduplicated and enriched across sessions rather than as one-off mentions.\n\n**Acceptance Criteria**\n- NPCs persist across sessions and accumulate context over time\n- The same NPC mentioned in multiple sessions is recognized as one entity, not duplicated",
+    "labels": ["type: feature", "area: campaign", "priority: medium"],
+    "milestone": "v0.5.0",
+    "epic": "Campaign",
+    "sprint": "Sprint 5",
+    "story_points": 5
+  },
+  {
+    "title": "Persist and organize detected quests",
+    "body": "Track quest lifecycle (offered, in progress, completed, abandoned) across sessions in the campaign database.\n\n**Acceptance Criteria**\n- Quests persist across sessions with an evolving status\n- Quest history is queryable per campaign",
+    "labels": ["type: feature", "area: campaign", "priority: medium"],
+    "milestone": "v0.5.0",
+    "epic": "Campaign",
+    "sprint": "Sprint 5",
+    "story_points": 5
+  },
+  {
+    "title": "Persist and organize detected items and locations",
+    "body": "Store detected items and locations in the campaign database, associated with the sessions and NPCs they relate to.\n\n**Acceptance Criteria**\n- Items and locations persist across sessions\n- Both are queryable per campaign",
+    "labels": ["type: feature", "area: campaign", "priority: low"],
+    "milestone": "v0.5.0",
+    "epic": "Campaign",
+    "sprint": "Sprint 5",
+    "story_points": 3
+  }
+]

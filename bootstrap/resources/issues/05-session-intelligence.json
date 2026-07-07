@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Identify and label speakers within a session",
+    "body": "Attach a stable speaker identity to each transcript segment so dialogue can be attributed to the right participant throughout a session.\n\n**Acceptance Criteria**\n- Each TranscriptReceived event carries a consistent speaker identifier\n- Speaker identity survives brief disconnects/reconnects within the same session",
+    "labels": ["type: feature", "area: audio", "priority: medium"],
+    "milestone": "v0.4.0",
+    "epic": "Voice",
+    "sprint": "Sprint 4",
+    "story_points": 5
+  },
+  {
+    "title": "Persist full session metadata",
+    "body": "Store session-level metadata: start/end time, participants, and duration, independent of the transcript content itself.\n\n**Acceptance Criteria**\n- A Session record is created on SessionStarted and closed on session end\n- Participants are linked to the sessions they attended",
+    "labels": ["type: feature", "area: campaign", "priority: medium"],
+    "milestone": "v0.4.0",
+    "epic": "Campaign",
+    "sprint": "Sprint 4",
+    "story_points": 3
+  },
+  {
+    "title": "Build the campaign timeline from session events",
+    "body": "Derive a chronological timeline of the campaign from the sequence of sessions and their key events.\n\n**Acceptance Criteria**\n- Timeline is queryable per campaign, ordered by session date\n- Each timeline entry links back to its source session",
+    "labels": ["type: feature", "area: campaign", "priority: medium"],
+    "milestone": "v0.4.0",
+    "epic": "Campaign",
+    "sprint": "Sprint 4",
+    "story_points": 5
+  },
+  {
+    "title": "Link transcripts to their originating session",
+    "body": "Ensure every persisted transcript entry references its session, so campaign history queries can retrieve dialogue in context.\n\n**Acceptance Criteria**\n- Transcript entries always carry a session foreign key\n- Deleting/archiving a session is a deliberate, explicit operation (no orphaned transcripts)",
+    "labels": ["type: feature", "area: campaign", "priority: low"],
+    "milestone": "v0.4.0",
+    "epic": "Campaign",
+    "sprint": "Sprint 4",
+    "story_points": 2
+  }
+]
