@@ -1,6 +1,6 @@
 # ADR-004 — Adopt a Modular Architecture
 
-**Status:** Accepted
+**Status:** Superseded by [ADR-006 — Clean and Hexagonal Architecture](006%20-%20clean%20and%20hexagonal%20architecture.md)
 
 **Date:** 2026-07-04
 
@@ -32,3 +32,7 @@ Positive
 Negative
 
 - Slightly more initial complexity
+
+## Update
+
+Superseded by [ADR-006](006%20-%20clean%20and%20hexagonal%20architecture.md), which re-expresses this same separation-of-concerns goal through Clean Architecture and Hexagonal Architecture — layering that also enforces the direction of dependencies, which a plain modular split did not.
