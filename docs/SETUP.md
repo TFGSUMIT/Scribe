@@ -24,3 +24,13 @@ uv sync
 ```bash
 uv run python src/main.py
 ```
+
+## GitHub Project Bootstrap
+
+The `bootstrap/` tool syncs labels, milestones, the Projects v2 board and backlog issues from `bootstrap/resources/` onto the GitHub repository. See [bootstrap/README.md](../bootstrap/README.md) for details.
+
+It needs a `.env` (copy `.env.example`) with a Personal Access Token scoped to `repo` and `project`:
+
+```bash
+python -m bootstrap.bootstrap init
+```

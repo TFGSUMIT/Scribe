@@ -1,4 +1,5 @@
 .env
 scripts.txt
 
-bootstrap/__pycache__/github_client.cpython-313.pyc
+bootstrap/**/__pycache__
+bootstrap/logs/
