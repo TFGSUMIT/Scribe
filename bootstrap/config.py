@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 
 from bootstrap.utils.paths import PROJECT_ROOT
 
+load_dotenv(PROJECT_ROOT / ".env")
+
 
 @dataclass
 class Config:
@@ -14,8 +16,6 @@ class Config:
     project_name: str
 
 def load_config():
-    load_dotenv(PROJECT_ROOT / ".env")
-
     return Config(
         token = os.getenv("GITHUB_TOKEN"),
         owner = os.getenv("GITHUB_OWNER"),
