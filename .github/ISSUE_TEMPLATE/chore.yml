@@ -1,6 +1,6 @@
 name: Chore
 description: Maintenance task
-title: ""
+title: "[CHORE] "
 labels:
   - "type: chore"
 
