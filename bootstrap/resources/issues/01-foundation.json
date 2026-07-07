@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Declare project metadata and dependencies",
+    "body": "pyproject.toml currently only configures Ruff — there is no [project] table and no dependencies declared, even though SETUP.md instructs contributors to run `uv sync`.\n\n**Acceptance Criteria**\n- [project] table with name, version and Python requirement\n- Core dependencies declared and locked via uv\n- `uv sync` works from a clean clone",
+    "labels": ["type: chore", "area: ci", "priority: high"],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 0",
+    "story_points": 2
+  },
+  {
+    "title": "Scaffold the Clean Architecture layout",
+    "body": "Create the empty package structure defined in docs/OVERVIEW.md and ADR-006: src/core/{domain,application,interfaces,services,events,models}, src/infrastructure, src/presentation. This is the skeleton every future feature (Discord adapter, Speech-to-Text adapter, AI provider, ...) will be built inside.\n\n**Acceptance Criteria**\n- Packages exist with __init__.py placeholders\n- A short README in src/ links back to docs/OVERVIEW.md\n- No layer imports another layer in the wrong direction (Core has zero imports from infrastructure/presentation)",
+    "labels": ["type: chore", "area: ci", "priority: high"],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 0",
+    "story_points": 3
+  },
+  {
+    "title": "Add a pytest scaffold",
+    "body": "There is no tests/ directory yet. ADR-006 commits to high testability as a consequence of the Core/Adapter split — that only pays off if tests actually exist from the start.\n\n**Acceptance Criteria**\n- tests/ mirrors the src/ layout\n- pytest configured and runnable via `uv run pytest`\n- One trivial passing test as a template for future ones",
+    "labels": ["type: test", "area: ci", "priority: medium"],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 0",
+    "story_points": 2
+  },
+  {
+    "title": "Add a CI workflow for lint and tests",
+    "body": "There is no .github/workflows/ yet. Every push and pull request should run Ruff and the test suite automatically.\n\n**Acceptance Criteria**\n- GitHub Actions workflow runs `ruff check` and `pytest` on push/PR\n- Workflow fails the build on lint or test errors\n- Status badge added to README.md",
+    "labels": ["type: chore", "area: ci", "priority: medium"],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 0",
+    "story_points": 3
+  },
+  {
+    "title": "Configure the VS Code workspace",
+    "body": "Add a shared VS Code workspace configuration so every contributor gets the same formatting and linting behavior out of the box.\n\n**Acceptance Criteria**\n- .vscode/settings.json enables format-on-save with Ruff\n- .vscode/extensions.json recommends the Python and Ruff extensions\n- Documented in SETUP.md",
+    "labels": ["type: chore", "area: ci", "priority: low", "good first issue"],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 0",
+    "story_points": 1
+  }
+]

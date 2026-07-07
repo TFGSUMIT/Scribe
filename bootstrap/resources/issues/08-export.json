@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Export a campaign to Markdown",
+    "body": "Implement a Markdown exporter for a campaign's history (sessions, summaries, NPCs, timeline).\n\n**Acceptance Criteria**\n- Exporter implements Core's export interface\n- Output is readable and versionable (suitable for pasting into a wiki or repo)",
+    "labels": ["type: feature", "area: exporter", "priority: medium"],
+    "milestone": "v1.0.0",
+    "epic": "Export",
+    "story_points": 3
+  },
+  {
+    "title": "Export a campaign to HTML",
+    "body": "Implement an HTML exporter for a campaign's history, suitable for sharing or hosting as a static page.\n\n**Acceptance Criteria**\n- Exporter implements Core's export interface\n- Output is self-contained (no external asset dependencies required to view it)",
+    "labels": ["type: feature", "area: exporter", "priority: low"],
+    "milestone": "v1.0.0",
+    "epic": "Export",
+    "story_points": 3
+  },
+  {
+    "title": "Export a campaign to PDF",
+    "body": "Implement a PDF exporter for a campaign's history, suitable for printing or archiving.\n\n**Acceptance Criteria**\n- Exporter implements Core's export interface\n- Reuses the HTML export as its rendering source where practical, to avoid duplicating layout logic",
+    "labels": ["type: feature", "area: exporter", "priority: low"],
+    "milestone": "v1.0.0",
+    "epic": "Export",
+    "story_points": 5
+  },
+  {
+    "title": "Export a campaign to JSON",
+    "body": "Implement a raw JSON exporter for a campaign's history, intended for programmatic consumption (backups, migrations, third-party tooling).\n\n**Acceptance Criteria**\n- Exporter implements Core's export interface\n- Output round-trips: the campaign's persisted data can be reconstructed from it",
+    "labels": ["type: feature", "area: exporter", "priority: low", "good first issue"],
+    "milestone": "v1.0.0",
+    "epic": "Export",
+    "story_points": 2
+  }
+]

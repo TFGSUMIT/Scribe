@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Join a Discord voice channel",
+    "body": "Implement the ability for the bot to join the voice channel of the user who invoked the command.\n\n**Acceptance Criteria**\n- Bot joins the invoking user's current voice channel\n- Reports a clear error if the user isn't in a voice channel\n- Raises a SessionStarted domain event on join",
+    "labels": ["type: feature", "area: audio", "area: discord", "priority: high"],
+    "milestone": "v0.2.0",
+    "epic": "Voice",
+    "sprint": "Sprint 2",
+    "story_points": 3
+  },
+  {
+    "title": "Leave a Discord voice channel",
+    "body": "Implement the ability for the bot to leave its current voice channel and cleanly end the session.\n\n**Acceptance Criteria**\n- Bot disconnects from the voice channel on command\n- Raises a SessionEnded-equivalent flow that flushes any pending audio",
+    "labels": ["type: feature", "area: audio", "area: discord", "priority: high"],
+    "milestone": "v0.2.0",
+    "epic": "Voice",
+    "sprint": "Sprint 2",
+    "story_points": 2
+  },
+  {
+    "title": "Receive raw voice packets per participant",
+    "body": "Capture incoming voice data from the Discord voice channel, keeping each participant's audio stream separate.\n\n**Acceptance Criteria**\n- Audio is captured per speaking participant, not mixed into a single stream\n- Raises ParticipantJoined/ParticipantLeft events as people enter/leave the channel",
+    "labels": ["type: feature", "area: audio", "priority: high"],
+    "milestone": "v0.2.0",
+    "epic": "Voice",
+    "sprint": "Sprint 2",
+    "story_points": 5
+  },
+  {
+    "title": "Implement Voice Activity Detection",
+    "body": "Detect when a participant starts and stops speaking, so silence isn't sent downstream for transcription.\n\n**Acceptance Criteria**\n- SpeakerStarted/SpeakerStopped events raised per participant\n- False positives from background noise are reasonably filtered",
+    "labels": ["type: feature", "area: audio", "priority: medium"],
+    "milestone": "v0.2.0",
+    "epic": "Voice",
+    "sprint": "Sprint 2",
+    "story_points": 5
+  },
+  {
+    "title": "Buffer and persist captured audio per participant",
+    "body": "Store each participant's captured audio segments to disk (or another configurable File Storage adapter) for later processing and, optionally, replay.\n\n**Acceptance Criteria**\n- Audio segments are written through the File Storage interface, not directly to disk from Core\n- Segments are associated with their session and participant",
+    "labels": ["type: feature", "area: audio", "priority: medium"],
+    "milestone": "v0.2.0",
+    "epic": "Voice",
+    "sprint": "Sprint 2",
+    "story_points": 3
+  }
+]

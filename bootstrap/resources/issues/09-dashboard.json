@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Decide the Desktop app framework: Tauri vs Electron",
+    "body": "docs/OVERVIEW.md lists both Tauri and Electron as candidates for the Desktop presentation layer, but no ADR has been written yet. This should be resolved with a proper ADR before UI work starts, so it isn't decided implicitly by whichever example someone copies first.\n\n**Acceptance Criteria**\n- ADR written comparing Tauri and Electron for this project's constraints (bundle size, Python interop, team familiarity)\n- Decision recorded and referenced by future Desktop app issues",
+    "labels": ["type: chore", "needs discussion", "priority: medium"],
+    "milestone": "v1.0.0",
+    "epic": "Dashboard",
+    "story_points": 2
+  },
+  {
+    "title": "Build the campaign viewer UI",
+    "body": "Implement the main Desktop dashboard view: browse campaigns, sessions, NPCs, quests and the timeline built by the Core.\n\n**Acceptance Criteria**\n- Reads exclusively through Core's application/interfaces layer, never the database directly\n- Displays at least sessions, NPCs and the timeline",
+    "labels": ["type: feature", "priority: medium"],
+    "milestone": "v1.0.0",
+    "epic": "Dashboard",
+    "story_points": 8
+  },
+  {
+    "title": "Implement campaign search in the dashboard",
+    "body": "Expose the semantic search capability (see the AI epic) through the dashboard UI.\n\n**Acceptance Criteria**\n- Natural-language search box wired to Core's search use case\n- Results link back to the originating session/entity",
+    "labels": ["type: feature", "priority: low"],
+    "milestone": "v1.0.0",
+    "epic": "Dashboard",
+    "story_points": 5
+  },
+  {
+    "title": "Wire up export actions from the dashboard",
+    "body": "Let users trigger the Markdown/HTML/PDF/JSON exporters (see the Export epic) directly from the dashboard.\n\n**Acceptance Criteria**\n- Dashboard calls Core's export use case, not the exporters directly\n- User can choose the export format and destination",
+    "labels": ["type: feature", "priority: low"],
+    "milestone": "v1.0.0",
+    "epic": "Dashboard",
+    "story_points": 3
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Bootstrap the Discord bot application",
+    "body": "Create the discord.py client skeleton: token loaded from configuration, intents declared, and an entry point that starts the bot process.\n\n**Acceptance Criteria**\n- Bot process starts and authenticates with a token from .env\n- Missing/invalid token fails with a clear error message\n- Lives entirely under the Discord adapter, per ADR-006 — no Core code references discord.py",
+    "labels": ["type: feature", "area: discord", "area: bot", "priority: high"],
+    "milestone": "v0.1.0",
+    "epic": "Discord",
+    "sprint": "Sprint 1",
+    "story_points": 3
+  },
+  {
+    "title": "Connect the bot to the Discord Gateway",
+    "body": "Handle the on_ready lifecycle event and log a successful Gateway connection, including which guilds the bot is in.\n\n**Acceptance Criteria**\n- Bot logs a ready message with its username and guild count\n- Reconnects gracefully on transient Gateway disconnects",
+    "labels": ["type: feature", "area: discord", "priority: high"],
+    "milestone": "v0.1.0",
+    "epic": "Discord",
+    "sprint": "Sprint 1",
+    "story_points": 2
+  },
+  {
+    "title": "Register slash command support",
+    "body": "Wire up discord.py's application command tree and sync it with Discord so slash commands are discoverable in the client.\n\n**Acceptance Criteria**\n- Command tree syncs on startup (guild-scoped for fast iteration during development)\n- Sync errors are logged instead of crashing the bot",
+    "labels": ["type: feature", "area: discord", "priority: medium"],
+    "milestone": "v0.1.0",
+    "epic": "Discord",
+    "sprint": "Sprint 1",
+    "story_points": 2
+  },
+  {
+    "title": "Implement a /ping slash command",
+    "body": "A minimal health-check command to validate the slash command pipeline end-to-end.\n\n**Acceptance Criteria**\n- /ping replies with the bot's current Gateway latency\n- Serves as the reference example for future slash commands",
+    "labels": ["type: feature", "area: discord", "good first issue", "priority: low"],
+    "milestone": "v0.1.0",
+    "epic": "Discord",
+    "sprint": "Sprint 1",
+    "story_points": 1
+  },
+  {
+    "title": "Define the Discord source adapter",
+    "body": "Per ADR-006, Discord is one input source adapter among several — it must translate discord.py's own callbacks into Core's source-agnostic domain events (SessionStarted, ParticipantJoined, ParticipantLeft) instead of Core reacting to discord.py types directly.\n\n**Acceptance Criteria**\n- A DiscordSourceAdapter implements the Core's input-source interface\n- Joining/leaving a voice channel raises the corresponding Core events\n- Core has zero direct dependency on discord.py types",
+    "labels": ["type: feature", "area: discord", "priority: high"],
+    "milestone": "v0.1.0",
+    "epic": "Discord",
+    "sprint": "Sprint 1",
+    "story_points": 5
+  }
+]

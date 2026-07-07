@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Integrate Faster Whisper as the Speech-to-Text adapter",
+    "body": "Implement a Speech-to-Text adapter backed by Faster Whisper, running locally per ADR-002 (privacy, cost, latency).\n\n**Acceptance Criteria**\n- Adapter implements Core's Speech-to-Text interface\n- Accepts a raw audio segment and returns transcribed text\n- Model size/device configurable",
+    "labels": ["type: feature", "area: transcription", "priority: high"],
+    "milestone": "v0.3.0",
+    "epic": "Speech Recognition",
+    "sprint": "Sprint 3",
+    "story_points": 5
+  },
+  {
+    "title": "Implement live per-speaker transcription",
+    "body": "Feed each participant's voice-activity segments into the Speech-to-Text adapter as they occur, instead of waiting for the whole session to end.\n\n**Acceptance Criteria**\n- Transcription happens incrementally, segment by segment\n- Raises a TranscriptReceived event per transcribed segment, tagged with the speaking participant",
+    "labels": ["type: feature", "area: transcription", "priority: high"],
+    "milestone": "v0.3.0",
+    "epic": "Speech Recognition",
+    "sprint": "Sprint 3",
+    "story_points": 5
+  },
+  {
+    "title": "Persist the session transcript",
+    "body": "Store the full, ordered transcript of a session — text, timestamp and speaker — through the Database interface.\n\n**Acceptance Criteria**\n- Transcript entries are queryable by session\n- Entries preserve chronological order across overlapping speakers",
+    "labels": ["type: feature", "area: transcription", "priority: high"],
+    "milestone": "v0.3.0",
+    "epic": "Speech Recognition",
+    "sprint": "Sprint 3",
+    "story_points": 3
+  },
+  {
+    "title": "Validate Portuguese-language transcription accuracy",
+    "body": "Portuguese is the primary language for the target audience (see PRODUCT.md). Validate Faster Whisper's accuracy on real RPG session audio and tune model/parameters accordingly.\n\n**Acceptance Criteria**\n- A sample of real or simulated RPG audio in Portuguese is transcribed and manually reviewed\n- Model size/parameters documented as the recommended default",
+    "labels": ["type: test", "area: transcription", "priority: medium"],
+    "milestone": "v0.3.0",
+    "epic": "Speech Recognition",
+    "sprint": "Sprint 3",
+    "story_points": 3
+  }
+]
