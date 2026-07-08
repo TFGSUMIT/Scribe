@@ -1,0 +1,30 @@
+# complete code
+[
+  {
+    "title": "Create Export Endpoint",
+    "body": "Implement export endpoint to export campaign data to JSON.",
+    "labels": ["type: feature", "area: ci"],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 5
+  },
+  {
+    "title": "Implement Export Service",
+    "body": "Create export service to handle JSON export.",
+    "labels": ["type: feature", "area: ci"],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 5
+  },
+  {
+    "title": "Implement Campaign Service",
+    "body": "Create campaign service to handle campaign data.",
+    "labels": ["type: feature", "area: ci"],
+    "milestone": "v0.1.0",
+    "epic": "Foundation",
+    "sprint": "Sprint 1",
+    "story_points": 5
+  }
+]
