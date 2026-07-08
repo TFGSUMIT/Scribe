@@ -1,39 +1,22 @@
 # complete code
 """
-JSON Loader
-
-This module implements a JSON loader that loads JSON data from files.
+Utility for loading JSON data.
 """
 import json
+import logging
 from pathlib import Path
 
 class JsonLoader:
-    """
-    JSON Loader
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
 
-    This class implements a JSON loader that loads JSON data from files.
-    """
-
-    @staticmethod
-    def load_json(file_path: str) -> Dict:
+    def load_json(self, data: Dict) -> str:
         """
-        Load JSON data from a file.
-
-        Args:
-            file_path (str): The path to the JSON file.
-
-        Returns:
-            Dict: The JSON data.
+        Load the JSON data.
         """
         try:
-            # Load the JSON data from the file
-            with Path(file_path).open("r") as file:
-                json_data = json.load(file)
-
-            # Return the JSON data
-            return json_data
-
+            json_output = json.dumps(data, indent=4)
+            return json_output
         except Exception as e:
-            # Handle any exceptions that occur during the loading process
-            print(f"Error loading JSON data: {e}")
-            return {}
+            self.logger.error(f"Error loading JSON data: {str(e)}")
+            raise
