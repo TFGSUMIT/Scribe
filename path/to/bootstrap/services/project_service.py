@@ -1,36 +1,36 @@
 # complete code
 """
-Service for project data.
-"""
-import json
-from typing import Dict
+Project Service
+==============
 
-from bootstrap.services.label_service import LabelService
-from bootstrap.services.milestone_service import MilestoneService
+This module provides a project service that retrieves the campaign data from the database.
+
+Classes:
+    ProjectService: The project service class that retrieves the campaign data.
+"""
+
+from typing import Dict
+from bootstrap.database import Database
 
 class ProjectService:
-    def __init__(self, label_service: LabelService, milestone_service: MilestoneService):
-        self.label_service = label_service
-        self.milestone_service = milestone_service
+    def __init__(self, database: Database):
+        self.database = database
 
-    def get_project_data(self) -> Dict:
+    def get_campaign(self, id: int) -> Dict:
         """
-        Get the project data.
+        Retrieve the campaign data from the database.
+
+        Args:
+            id (int): The ID of the campaign to retrieve.
+
+        Returns:
+            Dict: The campaign data retrieved from the database.
         """
         try:
-            label_data = self.label_service.get_label_data()
-            milestone_data = self.milestone_service.get_milestone_data()
-            project_data = self._generate_project_data(label_data, milestone_data)
-            return project_data
+            # Retrieve the campaign data from the database
+            campaign_data = self.database.get_campaign(id)
+            return campaign_data
         except Exception as e:
-            raise
-
-    def _generate_project_data(self, label_data: Dict, milestone_data: Dict) -> Dict:
-        """
-        Generate the project data from the label and milestone data.
-        """
-        project_data = {
-            "project_id": label_data["label_id"],
-            "name": milestone_data["milestone_name"]
-        }
-        return project_data
+            # Handle any errors that occur during retrieval
+            print(f"Error retrieving campaign: {e}")
+            return {}
