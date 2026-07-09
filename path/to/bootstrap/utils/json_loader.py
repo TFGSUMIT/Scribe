@@ -1,22 +1,39 @@
 # complete code
 """
-Utility for loading JSON data.
+JSON Loader and Serializer
+---------------------------
+
+This module provides a JsonLoader class that loads and serializes JSON data.
+It uses the json module for loading and serializing JSON data.
+
+Classes:
+    JsonLoader: A class representing a JSON loader and serializer.
 """
+
 import json
-import logging
-from pathlib import Path
+from typing import Dict
 
 class JsonLoader:
-    def __init__(self):
-        self.logger = logging.getLogger(__name__)
+    def serialize(self, data: Dict) -> Dict:
+        """
+        Serialize the given data into a JSON object.
 
-    def load_json(self, data: Dict) -> str:
+        Args:
+            data: A dictionary representing the data to serialize.
+
+        Returns:
+            A dictionary representing the serialized data in JSON format.
         """
-        Load the JSON data.
+        return json.loads(json.dumps(data))
+
+    def deserialize(self, json_data: Dict) -> Dict:
         """
-        try:
-            json_output = json.dumps(data, indent=4)
-            return json_output
-        except Exception as e:
-            self.logger.error(f"Error loading JSON data: {str(e)}")
-            raise
+        Deserialize a JSON object into a dictionary.
+
+        Args:
+            json_data: A dictionary representing the JSON data.
+
+        Returns:
+            A dictionary representing the deserialized JSON data.
+        """
+        return json.loads(json.dumps(json_data))
