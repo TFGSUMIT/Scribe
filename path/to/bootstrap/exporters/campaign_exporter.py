@@ -1,70 +1,199 @@
 # complete code
 """
-Campaign Exporter
+Campaign Exporter for JSON Format
+--------------------------------
 
-This module implements a campaign exporter that exports the campaign's history to JSON.
+This module implements the campaign exporter for JSON format, which reconstructs the campaign's persisted data.
 """
+
+import json
 from typing import Dict, List
-from dataclasses import asdict
-from bootstrap.services.project_service import ProjectService
-from bootstrap.utils.json_loader import JsonLoader
+
+from bootstrap.campaign import Campaign
+from bootstrap.services.campaign_service import CampaignService
+from bootstrap.utils.json_loader import JSONLoader
 
 class CampaignExporter:
     """
-    Campaign Exporter
-
-    This class implements a campaign exporter that exports the campaign's history to JSON.
+    Campaign Exporter for JSON Format
     """
 
-    def __init__(self, project_service: ProjectService):
+    def __init__(self, campaign_service: CampaignService):
         """
-        Initialize the campaign exporter.
+        Initialize the campaign exporter with the campaign service.
 
         Args:
-            project_service (ProjectService): The project service instance.
+            campaign_service (CampaignService): The campaign service instance.
         """
-        self.project_service = project_service
+        self.campaign_service = campaign_service
 
-    def export(self) -> Dict:
+    def export(self, campaign_id: int) -> Dict:
         """
-        Export the campaign's history to JSON.
+        Export the campaign's history in JSON format.
+
+        Args:
+            campaign_id (int): The campaign ID.
 
         Returns:
-            Dict: The campaign's history as a JSON object.
+            Dict: The campaign's history in JSON format.
         """
         try:
-            # Get the project data from the project service
-            project_data = self.project_service.get_project_data()
+            campaign = self.campaign_service.get_campaign(campaign_id)
+            if campaign is None:
+                raise ValueError("Campaign not found")
 
-            # Convert the project data to a dictionary
-            project_dict = asdict(project_data)
-
-            # Get the campaign history from the project data
-            campaign_history = project_dict.get("campaign_history")
-
-            # Convert the campaign history to a dictionary
-            campaign_history_dict = asdict(campaign_history)
-
-            # Return the campaign history as a JSON object
-            return campaign_history_dict
+            history = self._reconstruct_history(campaign)
+            return history
 
         except Exception as e:
-            # Handle any exceptions that occur during the export process
-            print(f"Error exporting campaign history: {e}")
-            return {}
+            raise ValueError(f"Failed to export campaign history: {str(e)}")
 
-def main():
-    # Create a project service instance
-    project_service = ProjectService()
+    def _reconstruct_history(self, campaign: Campaign) -> Dict:
+        """
+        Reconstruct the campaign's history from the persisted data.
 
-    # Create a campaign exporter instance
-    campaign_exporter = CampaignExporter(project_service)
+        Args:
+            campaign (Campaign): The campaign instance.
 
-    # Export the campaign's history to JSON
-    campaign_history = campaign_exporter.export()
+        Returns:
+            Dict: The campaign's history in JSON format.
+        """
+        history = {
+            "id": campaign.id,
+            "name": campaign.name,
+            "description": campaign.description,
+            "npcs": self._reconstruct_npcs(campaign),
+            "locations": self._reconstruct_locations(campaign),
+            "quests": self._reconstruct_quests(campaign),
+            "items": self._reconstruct_items(campaign),
+            "encounters": self._reconstruct_encounters(campaign),
+            "events": self._reconstruct_events(campaign),
+        }
 
-    # Print the campaign history
-    print(campaign_history)
+        return history
 
-if __name__ == "__main__":
-    main()
+    def _reconstruct_npcs(self, campaign: Campaign) -> List:
+        """
+        Reconstruct the NPCs from the persisted data.
+
+        Args:
+            campaign (Campaign): The campaign instance.
+
+        Returns:
+            List: The NPCs in JSON format.
+        """
+        npcs = []
+        for npc in campaign.npcs:
+            npc_data = {
+                "id": npc.id,
+                "name": npc.name,
+                "description": npc.description,
+            }
+            npcs.append(npc_data)
+
+        return npcs
+
+    def _reconstruct_locations(self, campaign: Campaign) -> List:
+        """
+        Reconstruct the locations from the persisted data.
+
+        Args:
+            campaign (Campaign): The campaign instance.
+
+        Returns:
+            List: The locations in JSON format.
+        """
+        locations = []
+        for location in campaign.locations:
+            location_data = {
+                "id": location.id,
+                "name": location.name,
+                "description": location.description,
+            }
+            locations.append(location_data)
+
+        return locations
+
+    def _reconstruct_quests(self, campaign: Campaign) -> List:
+        """
+        Reconstruct the quests from the persisted data.
+
+        Args:
+            campaign (Campaign): The campaign instance.
+
+        Returns:
+            List: The quests in JSON format.
+        """
+        quests = []
+        for quest in campaign.quests:
+            quest_data = {
+                "id": quest.id,
+                "name": quest.name,
+                "description": quest.description,
+            }
+            quests.append(quest_data)
+
+        return quests
+
+    def _reconstruct_items(self, campaign: Campaign) -> List:
+        """
+        Reconstruct the items from the persisted data.
+
+        Args:
+            campaign (Campaign): The campaign instance.
+
+        Returns:
+            List: The items in JSON format.
+        """
+        items = []
+        for item in campaign.items:
+            item_data = {
+                "id": item.id,
+                "name": item.name,
+                "description": item.description,
+            }
+            items.append(item_data)
+
+        return items
+
+    def _reconstruct_encounters(self, campaign: Campaign) -> List:
+        """
+        Reconstruct the encounters from the persisted data.
+
+        Args:
+            campaign (Campaign): The campaign instance.
+
+        Returns:
+            List: The encounters in JSON format.
+        """
+        encounters = []
+        for encounter in campaign.encounters:
+            encounter_data = {
+                "id": encounter.id,
+                "name": encounter.name,
+                "description": encounter.description,
+            }
+            encounters.append(encounter_data)
+
+        return encounters
+
+    def _reconstruct_events(self, campaign: Campaign) -> List:
+        """
+        Reconstruct the events from the persisted data.
+
+        Args:
+            campaign (Campaign): The campaign instance.
+
+        Returns:
+            List: The events in JSON format.
+        """
+        events = []
+        for event in campaign.events:
+            event_data = {
+                "id": event.id,
+                "name": event.name,
+                "description": event.description,
+            }
+            events.append(event_data)
+
+        return events

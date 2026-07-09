@@ -1,36 +1,65 @@
 # complete code
 """
-Service for campaign data.
-"""
-import json
-from typing import Dict
+Campaign Service
+----------------
 
-from bootstrap.services.project_service import ProjectService
-from bootstrap.services.issue_service import IssueService
+This module provides the campaign service, which handles the campaign data storage and retrieval.
+"""
+
+import logging
+
+from bootstrap.campaign import Campaign
+from bootstrap.exporters.campaign_exporter import CampaignExporter
+
+logger = logging.getLogger(__name__)
 
 class CampaignService:
-    def __init__(self, project_service: ProjectService, issue_service: IssueService):
-        self.project_service = project_service
-        self.issue_service = issue_service
+    """
+    Campaign Service
+    """
 
-    def get_campaign_data(self) -> Dict:
+    def __init__(self):
         """
-        Get the campaign data.
+        Initialize the campaign service.
+        """
+        self.campaign_exporter = CampaignExporter(self)
+
+    def get_campaign(self, campaign_id: int) -> Campaign:
+        """
+        Get the campaign by ID.
+
+        Args:
+            campaign_id (int): The campaign ID.
+
+        Returns:
+            Campaign: The campaign instance.
         """
         try:
-            project_data = self.project_service.get_project_data()
-            issue_data = self.issue_service.get_issue_data()
-            campaign_data = self._generate_campaign_data(project_data, issue_data)
-            return campaign_data
-        except Exception as e:
-            raise
+            campaign = Campaign.query.get(campaign_id)
+            if campaign is None:
+                raise ValueError("Campaign not found")
 
-    def _generate_campaign_data(self, project_data: Dict, issue_data: Dict) -> Dict:
+            return campaign
+
+        except Exception as e:
+            logger.error(f"Failed to get campaign: {str(e)}")
+            raise ValueError("Failed to get campaign")
+
+    def export_campaign(self, campaign_id: int) -> str:
         """
-        Generate the campaign data from the project and issue data.
+        Export the campaign's history in JSON format.
+
+        Args:
+            campaign_id (int): The campaign ID.
+
+        Returns:
+            str: The campaign's history in JSON format.
         """
-        campaign_data = {
-            "campaign_id": project_data["project_id"],
-            "history": issue_data["issues"]
-        }
-        return campaign_data
+        try:
+            history = self.campaign_exporter.export(campaign_id)
+            json_data = json.dumps(history, indent=4)
+            return json_data
+
+        except Exception as e:
+            logger.error(f"Failed to export campaign history: {str(e)}")
+            raise ValueError("Failed to export campaign history")

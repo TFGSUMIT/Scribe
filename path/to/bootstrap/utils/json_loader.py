@@ -1,39 +1,51 @@
 # complete code
 """
-JSON Loader and Serializer
----------------------------
+JSON Loader
+------------
 
-This module provides a JsonLoader class that loads and serializes JSON data.
-It uses the json module for loading and serializing JSON data.
-
-Classes:
-    JsonLoader: A class representing a JSON loader and serializer.
+This module provides the JSON loader utility, which loads JSON data from a file or string.
 """
 
 import json
-from typing import Dict
 
-class JsonLoader:
-    def serialize(self, data: Dict) -> Dict:
+class JSONLoader:
+    """
+    JSON Loader
+    """
+
+    @staticmethod
+    def load_json_file(file_path: str) -> Dict:
         """
-        Serialize the given data into a JSON object.
+        Load JSON data from a file.
 
         Args:
-            data: A dictionary representing the data to serialize.
+            file_path (str): The file path.
 
         Returns:
-            A dictionary representing the serialized data in JSON format.
+            Dict: The JSON data.
         """
-        return json.loads(json.dumps(data))
+        try:
+            with open(file_path, "r") as file:
+                json_data = json.load(file)
+                return json_data
 
-    def deserialize(self, json_data: Dict) -> Dict:
+        except Exception as e:
+            raise ValueError(f"Failed to load JSON file: {str(e)}")
+
+    @staticmethod
+    def load_json_string(json_string: str) -> Dict:
         """
-        Deserialize a JSON object into a dictionary.
+        Load JSON data from a string.
 
         Args:
-            json_data: A dictionary representing the JSON data.
+            json_string (str): The JSON string.
 
         Returns:
-            A dictionary representing the deserialized JSON data.
+            Dict: The JSON data.
         """
-        return json.loads(json.dumps(json_data))
+        try:
+            json_data = json.loads(json_string)
+            return json_data
+
+        except Exception as e:
+            raise ValueError(f"Failed to load JSON string: {str(e)}")
